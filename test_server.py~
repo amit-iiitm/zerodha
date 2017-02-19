@@ -1,0 +1,26 @@
+import os
+import random
+import time
+from flask import Flask, request, render_template, session, flash, redirect,url_for, jsonify
+from celery import Celery
+app=Flask(__name__)
+
+def getCpuLoad():
+	return psutil.cpu_percent()
+
+def getVmem():
+	return psutil.virtual_memory()[2]
+
+def getDisk():
+	return psutil.disk_usage('/')[3]
+
+@app.route('/_stuff', methods= ['GET'])
+def stuff():
+    cpu=round(getCpuLoad())
+    ram=round(getVmem())
+    disk=round(getDisk())
+    print jsonify(cpu=cpu, ram=ram, disk=disk)
+    return render_template('index.html',cpu=cpu, ram=ram, disk=disk)
+
+if __name__=="__main__":
+	app.run(debug=True)
