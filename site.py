@@ -29,5 +29,5 @@ class StackMirror(object):
         return json.dumps([json.loads(cmpny) for cmpny in gainers])
 
 cherrypy.quickstart(StackMirror(), "/", { "/static": {
-                        "tools.staticfile.on": True,
-                        "tools.staticfile.filename" : path.join(path.abspath(curdir), "realtime.js")}})
+                        "tools.staticdir.on": True,
+                        "tools.staticdir.dir" : path.join(path.abspath(curdir), "static")}})
