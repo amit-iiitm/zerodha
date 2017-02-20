@@ -5,6 +5,7 @@ function append_to_dom(data) {
     if (data.length == 0) {
         return
     }
+    //append the contents in div id realtime
     var blocks = data.map(function (gainer) {
         var block = "<div class='col-sm-4'><div class='card' style='width: 40rem;border-radius:5px;background-color:#3CB371;text-align:center'><div class='container'><h4 class='card-title' style='font-family: 'Playfair Display', serif;'>" + gainer.symbol;
         block += " " + "</h4><p class='card-text' style='margin-top:-15px'>" + " &nbsp  Ltp: " + gainer.ltp + "<br>";

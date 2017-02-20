@@ -19,12 +19,15 @@ class StackMirror(object):
             #print e["data"]
         #   for cmpny in e["data"]:
         #        gainers.append(cmpny)
+        #query redis 
         r = redis.StrictRedis(host='localhost', port=6379, db=0)
         #gainers=r.hgetall('data')
         #print gainers
         #print type(gainers)
         #print gainers["data"]
         #print type(gainers["data"])
+
+        #return data to frontend
         gainers=r.lrange('data_list',0,-1)
         return json.dumps([json.loads(cmpny) for cmpny in gainers])
 
