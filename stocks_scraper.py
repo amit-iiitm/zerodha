@@ -14,7 +14,7 @@ app.config_from_object("celeryconfig")
 @app.task
 def stocks():
     
-    site= "https://www.nseindia.com/live_market/dynaContent/live_analysis/gainers/niftyGainers1.json"
+    site= "https://www1.nseindia.com/live_market/dynaContent/live_analysis/gainers/niftyGainers1.json"
     #mimick the request as browser to have the access permission
     hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
